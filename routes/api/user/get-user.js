@@ -13,7 +13,14 @@ const routeOpts = {
                 type: 'object',
                 properties: {
                     statusCode: { type: 'number' },
-                    user: { type: 'object' }
+                    user: { 
+                        type: 'object', 
+                        properties: {
+                            username: { type: 'string' },
+                            email: { type: 'string' },
+                            permissions: { type: 'number' }
+                        }
+                    }
                 }
             }
         }
@@ -28,7 +35,7 @@ module.exports = async function(fastify, opts) {
             reply.badRequest(`${user_id} is not a valid id`);
         }
 
-        const user = await User.find({
+        const user = await User.findOne({
             _id: user_id
         });
 
