@@ -14,6 +14,10 @@ const schema = new Schema({
         type: String,
         required: [ true, 'User property "email" is required' ],
         unique: [ true, 'User property "email" must be unique' ]
+    },
+    permissions: {
+        type: Number,
+        required: [ true, 'User property "permissions" is required' ]
     }
 });
 
