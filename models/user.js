@@ -9,6 +9,11 @@ const schema = new Schema({
     key: {
         type: String,
         required: [ true, 'User property "password" is required' ]
+    },
+    email: {
+        type: String,
+        required: [ true, 'User property "email" is required' ],
+        unique: [ true, 'User property "email" must be unique' ]
     }
 });
 
