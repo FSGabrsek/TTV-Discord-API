@@ -1,0 +1,16 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const schema = new Schema({
+    username: {
+        type: String,
+        required: [ true, 'User property "username" is required' ]
+    },
+    key: {
+        type: String,
+        required: [ true, 'User property "password" is required' ]
+    }
+});
+
+const User = mongoose.model('user', schema);
+module.exports = User;
