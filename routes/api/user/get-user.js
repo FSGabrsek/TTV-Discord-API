@@ -6,7 +6,7 @@ const User = require("../../../models/user");
 const routeOpts = {
     schema: {
         params: {
-
+            user_id: { type: 'string' }
         },
         response: {
             200: {
@@ -22,7 +22,7 @@ const routeOpts = {
 
 module.exports = async function(fastify, opts) {
     fastify.get('/:user_id', routeOpts, async function (request, reply) {
-        const user_id = request.params.user_id;
+        const { user_id } = request.params;
 
         if (!mongoose.Types.ObjectId.isValid(user_id)) {
             reply.badRequest(`${user_id} is not a valid id`);
