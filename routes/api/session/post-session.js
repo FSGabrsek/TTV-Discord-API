@@ -4,8 +4,6 @@ const { compare } = require("bcrypt");
 const { sign } = require("jsonwebtoken");
 const User = require("../../../models/user");
 
-const saltRounds = 10;
-
 const routeOpts = {
     schema: {
         body: {
